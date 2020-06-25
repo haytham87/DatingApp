@@ -8,6 +8,7 @@ namespace DatingApp.API.Data
     public class AuthRespository : IAuthRepository
     {
         #region  Private Memeber
+
         private readonly DataContext _context;
 
         #endregion
@@ -16,7 +17,6 @@ namespace DatingApp.API.Data
         public AuthRespository(DataContext context)
         {
             _context = context;
-
         }
         #endregion
       
@@ -60,8 +60,8 @@ namespace DatingApp.API.Data
         {
             using(var hmac= new System.Security.Cryptography.HMACSHA512())
             {
-                passwordsalt=hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                passwordhash=hmac.Key;
+                passwordsalt=hmac.Key;
+                passwordhash=hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
        
