@@ -3,20 +3,22 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
-import { from } from 'rxjs';
+
+import {FormsModule} from '@angular/forms';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      ValueComponent
+      ValueComponent,
+      NavComponent
    ],
    imports: [
       BrowserModule,
-      HttpClientModule
+      HttpClientModule,
+      FormsModule
    ],
    providers: [],
-   bootstrap: [
-      AppComponent
-   ]
-})
+      bootstrap: [AppComponent]
+   })
 export class AppModule { }
