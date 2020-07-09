@@ -1,18 +1,18 @@
-import { Photo } from './Photo';
+import { Photos } from './Photos';
 
 export interface User {
-    id: number;
-    UserName: string;
-    KnowAs: string;
+    userID: number;
+    userName: string;
+    knowAs: string;
     age: number;
     gender: string;
-    created: Date;
+    createdDate: Date;
     lastActive: Date;
     photoUrl?: string;
     city: string;
     country: string;
     interests?: string;
-    introduction?: string;
+    intoduction?: string;
     lookingFor?: string;
-    photos?: Photo[];
+    photos?: Photos[];
 }

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.KnowAs}}">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt="{{user.knowAs}}">
         <div class="card-body">
           <div>
             <strong>Location:</strong>
@@ -18,7 +18,7 @@
           </div>
           <div>
             <strong>Member since:</strong>
-            <p>{{user.created}}</p>
+            <p>{{user.createdDate}}</p>
           </div>
         </div>
         <div class="card-footer">
@@ -32,9 +32,9 @@
     <div class="col-sm-8">
     <div class="tab-panel">
       <tabset  class="member-tabset" >
-        <tab heading="about {{user.KnowAs}}">
+        <tab heading="about -- {{user.knowAs}}">
         <h4>Description:</h4>
-        <p>{{user.introduction}}</p>
+        <p>{{user.intoduction}}</p>
         <h4>Looking For:</h4>
         <p>{{user.lookingFor}}</p>
         </tab>
@@ -43,8 +43,9 @@
           <p>{{user.interests}}</p>
         </tab>
         <tab heading="Photos">
-          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
-          style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
+          <ngx-gallery style="display: inline-block; margin-bottom: 20px;" 
+          [options]="galleryOptions" [images]="galleryImages" 
+          ></ngx-gallery> 
         </tab>
         <tab heading="messages">
           <p>

@@ -34,7 +34,9 @@ namespace DatingApp.API.Controllers
 
             var userToCreate = new User
             {
-                UserName = userForRegisterDto.username
+                UserName = userForRegisterDto.username ,
+                KnowAs = userForRegisterDto.KnowAs,
+                CreatedDate = DateTime.Now
             };
 
             var createduser = _repo.Register(userToCreate, userForRegisterDto.password);
@@ -53,7 +55,7 @@ namespace DatingApp.API.Controllers
 
             var claims = new[]
             {
-                 new Claim(ClaimTypes.NameIdentifier,userrepo.id.ToString()),
+                 new Claim(ClaimTypes.NameIdentifier,userrepo.UserID.ToString()),
                  new Claim(ClaimTypes.Name,userrepo.UserName)
              };
 

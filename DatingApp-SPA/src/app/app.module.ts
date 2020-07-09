@@ -25,17 +25,18 @@ import { MemberDetailComponent } from './member/member-detail/member-detail.comp
 import { MemberDetailResolvser } from './_resolvers/member-detail.resolver';
 import { MemberListResolvser } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { MemberEditComponent } from './member/member-Edit/member-Edit.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
 }
 
-export class CustomHammerConfig extends HammerGestureConfig {
-   overrides = {
-      pinch: { enable: false},
-      rotate: {enable: false}
-   };
-}
+// export class CustomHammerConfig extends HammerGestureConfig {
+//    overrides = {
+//       pinch: { enable: false},
+//       rotate: {enable: false}
+//    };
+// }
 
 @NgModule({
    declarations: [
@@ -47,7 +48,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ListsComponent,
       MessagesComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -71,8 +73,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ErrorInterceptorProvider,
       AlertifyService,
       MemberDetailResolvser,
-      MemberListResolvser,
-      {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
+      MemberListResolvser
+      // {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
    ],
    bootstrap: [
       AppComponent

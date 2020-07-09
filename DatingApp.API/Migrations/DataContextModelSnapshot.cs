@@ -50,7 +50,7 @@ namespace DatingApp.API.Migrations
 
             modelBuilder.Entity("DatingApp.API.Models.User", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -92,10 +92,9 @@ namespace DatingApp.API.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("UserID");
 
                     b.ToTable("Users");
                 });
@@ -117,7 +116,7 @@ namespace DatingApp.API.Migrations
 
             modelBuilder.Entity("DatingApp.API.Models.Photo", b =>
                 {
-                    b.HasOne("DatingApp.API.Models.User", "user")
+                    b.HasOne("DatingApp.API.Models.User", "User")
                         .WithMany("Photo")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)

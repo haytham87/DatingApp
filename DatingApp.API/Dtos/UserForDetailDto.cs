@@ -6,7 +6,7 @@ namespace DatingApp.API.Dtos
 {
     public class UserForDetailDto
     {
-        public int id { get; set; }
+        public int UserID { get; set; }
         public string UserName{set;get;}
         public string Gender {get;set;}
         public int Age {set;get;}
@@ -18,7 +18,7 @@ namespace DatingApp.API.Dtos
         public string Interests { get; set; }
         public string City {set;get;}
         public string Country {set;get;}
-        public string PhtotUrl { get; set; }
-        public ICollection<PhotoForDetailedDto> photos {set;get;}
+        public string PhotoUrl { get; set; }
+        public ICollection<PhotoForDetailedDto> photos { set; get;}
     }
 }

@@ -6,7 +6,7 @@ namespace DatingApp.API.Models
 {
     public class User
     {
-        public int id { get; set; }
+        public int UserID { get; set; }
         public string UserName{set;get;}
         public byte[] PasswordHash{set;get;}
         public byte[] PasswordSalt{set;get;}
@@ -20,6 +20,6 @@ namespace DatingApp.API.Models
         public string Interests { get; set; }
         public string City {set;get;}
         public string Country {set;get;}
-        public ICollection<Photo> Photo {set;get;}
+        public ICollection<Photo> Photos {set;get;}
     }
 }

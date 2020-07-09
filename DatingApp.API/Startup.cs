@@ -38,7 +38,8 @@ namespace DatingApp.API
             services.AddDbContext<DataContext>(x=>x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddControllers().AddNewtonsoftJson(opt =>{
-                opt.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                opt.SerializerSettings.ReferenceLoopHandling
+                =Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
