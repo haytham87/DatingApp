@@ -20,4 +20,9 @@ getUsers(): Observable<User[]>{
  getUser(userID): Observable<User> {
    return this.http.get<User>(this.baseUrl + 'users/' + userID);
  }
+
+ updateUser(userID: number, user: User)
+ {
+ return this.http.put(this.baseUrl + 'users/' + userID, user);
+ }
 }

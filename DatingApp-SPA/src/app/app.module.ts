@@ -26,6 +26,8 @@ import { MemberDetailResolvser } from './_resolvers/member-detail.resolver';
 import { MemberListResolvser } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './member/member-Edit/member-Edit.component';
+import { MemberEditResolvser } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -73,7 +75,9 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       MemberDetailResolvser,
-      MemberListResolvser
+      MemberListResolvser,
+      MemberEditResolvser,
+      PreventUnsavedChanges
       // {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
    ],
    bootstrap: [

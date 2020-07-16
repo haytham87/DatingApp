@@ -8,6 +8,8 @@ import { MemberDetailComponent } from './member/member-detail/member-detail.comp
 import { MemberDetailResolvser } from './_resolvers/member-detail.resolver';
 import { MemberListResolvser } from './_resolvers/member-list.resolver';
 import { MemberEditComponent } from './member/member-Edit/member-Edit.component';
+import { MemberEditResolvser } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,7 +20,8 @@ export const appRoutes: Routes = [
         children: [
             {path: 'members' , component: MemberListComponent , resolve: {users: MemberListResolvser} },
             {path: 'members/:userID' , component: MemberDetailComponent , resolve: {user: MemberDetailResolvser}},
-            {path: 'member/edit' , component: MemberEditComponent},
+            {path: 'member/edit' , component: MemberEditComponent,
+             resolve: {user: MemberEditResolvser} , canDeactivate: [PreventUnsavedChanges]},
             {path: 'messages' , component: MessagesComponent},
             {path: 'lists' , component: ListsComponent},
         ]

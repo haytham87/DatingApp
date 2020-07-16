@@ -5,17 +5,19 @@ import { UserService } from '../_services/user.service';
 import { AlertifyService } from '../_services/alertify.service';
 import {  of, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AuthService } from '../_services/auth.service';
 
 
 @Injectable()
-export class MemberDetailResolvser implements Resolve<User> {
+export class MemberEditResolvser implements Resolve<User> {
 
- constructor(private userService: UserService, private router: Router , private alertify: AlertifyService){}
+ constructor(private userService: UserService, private router: Router , private alertify: AlertifyService
+  ,private authService: AuthService){}
 
   resolve(route: ActivatedRouteSnapshot): Observable<User> {
-    return this.userService.getUser(route.params['userID']).pipe(
+    return this.userService.getUser(this.authService.decodedToken.nameid).pipe(
         catchError(error => {
-            this.alertify.error('Problem retrieveing data');
+            this.alertify.error('Problem retrieveing your data');
             this.router.navigate(['/members']);
             return of(null);
         })
