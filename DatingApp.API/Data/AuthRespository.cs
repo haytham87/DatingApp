@@ -33,7 +33,7 @@ namespace DatingApp.API.Data
         #region Log Function
         public async Task<User> Login(string Username, string password)
         {
-            var user =await _context.Users.FirstOrDefaultAsync(x=>x.UserName==Username);
+            var user =await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(x=>x.UserName==Username);
             if(user==null)
             return null;
 

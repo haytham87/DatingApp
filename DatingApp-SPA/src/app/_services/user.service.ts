@@ -25,4 +25,8 @@ getUsers(): Observable<User[]>{
  {
  return this.http.put(this.baseUrl + 'users/' + userID, user);
  }
+
+ setMainPhoto(userID: number, photoid: number){
+  return this.http.post(this.baseUrl + 'users/' + userID + '/photos/' + photoid + '/setmain', {});
+ }
 }
